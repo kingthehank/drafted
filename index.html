@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SO BE IT SEE TO IT - 2025</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap');
+        
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Cormorant', Georgia, serif;
+            background-color: #f9f7f1;
+            color: #222;
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+        }
+        
+        header {
+            padding: 20px;
+            background-color: #fff;
+            border-bottom: 1px solid #ddd;
+            text-align: center;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+        
+        .logo {
+            font-family: 'Cormorant', Georgia, serif;
+            font-size: 36px;
+            font-weight: 600;
+            letter-spacing: 2px;
+            margin: 0;
+            color: #000;
+        }
+        
+        .subheading {
+            font-family: 'Cormorant', Georgia, serif;
+            font-style: italic;
+            font-size: 20px;
+            margin-top: 5px;
+            color: #666;
+        }
+        
+        main {
+            flex: 1;
+            display: flex;
+            padding: 20px;
+            justify-content: center;
+            overflow: auto;
+        }
+        
+        .paper {
+            width: 650px;
+            height: auto;
+            min-height: calc(100vh - 140px);
+            background-color: #fff;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            padding: 60px;
+            position: relative;
+        }
+        
+        .paper::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: 
+                linear-gradient(90deg, rgba(230,230,230,0.05) 1px, transparent 1px),
+                linear-gradient(rgba(230,230,230,0.05) 1px, transparent 1px);
+            background-size: 20px 20px;
+            pointer-events: none;
+        }
+        
+        .editor {
+            width: 100%;
+            height: 100%;
+            min-height: 800px;
+            border: none;
+            outline: none;
+            font-family: 'Cormorant', Georgia, serif;
+            font-size: 22px;
+            line-height: 1.45;
+            resize: none;
+            background: transparent;
+            color: #222;
+            overflow: auto;
+        }
+        
+        /* Simulate justified text alignment */
+        .editor::placeholder {
+            text-align: justify;
+            color: #999;
+        }
+        
+        .editing-tools {
+            display: flex;
+            justify-content: center;
+            padding: 10px 0;
+            background: #f9f7f1;
+            border-top: 1px solid #ddd;
+        }
+        
+        .editing-tools button {
+            margin: 0 10px;
+            padding: 8px 12px;
+            background: #fff;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+            font-family: 'Cormorant', Georgia, serif;
+            font-size: 16px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+        
+        .editing-tools button:hover {
+            background: #f0f0f0;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1 class="logo">SO BE IT SEE TO IT</h1>
+        <div class="subheading">2025</div>
+    </header>
+    
+    <main>
+        <div class="paper">
+            <textarea class="editor" placeholder="Begin typing your masterpiece here...
+
+The afternoon sun cast long shadows across the room as she contemplated her response. There was something peculiarly satisfying about watching the words materialize on the page, each letter a small commitment to an idea. She continued writing, aware that each paragraph brought her closer to some essential truth she couldn't yet articulate.
+
+She paused, considering the weight of what would come next. The blank space below her last sentence seemed to pulse with possibility."></textarea>
+        </div>
+    </main>
+    
+    <div class="editing-tools">
+        <button onclick="document.execCommand('italic')">Italic</button>
+        <button onclick="document.execCommand('bold')">Bold</button>
+        <button onclick="document.execCommand('justifyCenter')">Center</button>
+        <button onclick="document.execCommand('justifyFull')">Justify</button>
+    </div>
+
+    <script>
+        // Simple script to enhance the writing experience
+        document.addEventListener('DOMContentLoaded', function() {
+            const editor = document.querySelector('.editor');
+            
+            // Set initial placeholder text
+            const placeholder = editor.placeholder;
+            
+            // Add focus and blur events for placeholder behavior
+            editor.addEventListener('focus', function() {
+                if (editor.value === placeholder) {
+                    editor.value = '';
+                }
+            });
+            
+            editor.addEventListener('blur', function() {
+                if (editor.value === '') {
+                    editor.value = placeholder;
+                }
+            });
+            
+            // Set initial value
+            if (!editor.value) {
+                editor.value = placeholder;
+            }
+        });
+    </script>
+</body>
+</html>
